@@ -7,6 +7,6 @@ import com.learning.web.Entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	  @Query("select u from User u where u.emailAddress = ?1")
+	  @Query("select u from User u where u.email = ?1")
 	  User findByEmailAddress(String emailAddress);
 }
