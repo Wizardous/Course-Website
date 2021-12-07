@@ -19,6 +19,9 @@ public class User {
 	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "role")
+	private String role;
 
 	@Column(name = "first_name", nullable = false)
 	private String firstName;
@@ -39,6 +42,8 @@ public class User {
 	
 	@ManyToMany(mappedBy = "enrolledUsers")
 	private Set<Course> enrolledCourses = new HashSet<>();
+
+	private boolean enabled;
 
 
 //	TODO : Add avatar feature for user profile
@@ -98,6 +103,22 @@ public class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+	
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 	
 	
