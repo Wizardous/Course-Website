@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>All Contacts</h1>
+	<div th:each="contact: ${contacts}">
+		<h3 th:text="${contact.subject}"></h3>
+		<h4 th:text="${contact.message}"></h4>
+	</div>
+</body>
+</html>

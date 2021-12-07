@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>All Feedbacks</h1>
+	<div th:each="feedback: ${feedbacks}">
+		<h3 th:text="${feedback.title}"></h3>
+		<h4 th:text="${feedback.feedbackBody}"></h4>
+	</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Admin Dashboard</h1>
+	
+	<div>
+		<a th:href="@{/courses/add}">Add Course</a><br />
+		<a th:href="@{/courses}">View Course</a><br />
+		<br />
+		<a th:href="@{/user/list}">Users List</a> <br />
+		<a th:href="@{/feedbacks/list}">Feedback</a> <br />
+		<a th:href="@{/contact/list}">Contact</a>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Add New Course</h1>
+
+	<div>
+		<form th:action="@{/courses/add}" th:object="${course}" method="POST">
+			<div>
+				<label for="courseName">First Name</label> 
+				<input type="text" name="courseName" th:field="*{courseName}" />
+			</div>
+
+			<div>
+				<label for="courseDescription">Last Name</label>
+				<textarea name="courseDescription" 
+						th:field="*{courseDescription}" row=5 cols=20>
+				</textarea>	
+			</div>
+			
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+</body>
+</html>
