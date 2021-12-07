@@ -21,21 +21,22 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/signup")
+	@GetMapping("/user/signup")
 	public String viewSignUpPage(Model model) {
 		User user = new User();
+		user.setRole("USER");
 		model.addAttribute("user", user);
 		
 		return "signup";
 	}
 	
-	@PostMapping("/signup")
+	@PostMapping("/user/signup")
 	public String registerUser(@ModelAttribute("user") User user) {
 		userService.saveUser(user);
 		return "redirect:/";
 	}
 	
-	@GetMapping("/user/list")
+	@GetMapping("/admin/users/list")
 	public String getAllUsersList(Model model) {
 		model.addAttribute("users", userService.getAllUsers());
 		return "user_list.html";

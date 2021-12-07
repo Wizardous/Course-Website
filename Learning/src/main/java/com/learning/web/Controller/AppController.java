@@ -30,12 +30,12 @@ public class AppController {
 		return "index";
 	}
 	
-	@GetMapping("/dashboard/admin")
+	@GetMapping("/admin/dashboard")
 	public String viewAdminDashboardPage() {
 		return "admin_dashboard";
 	}
 	
-	@GetMapping("/dashboard/user")
+	@GetMapping("/user/dashboard")
 	public String viewUserDahsboardPage() {
 		return "user_dashboard";
 	}

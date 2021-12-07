@@ -8,7 +8,7 @@
 	<h1>Contact Us Form</h1>
 	
 	<div>
-		<form th:action="@{/contact-us}" th:object="${contact}" method="POST">
+		<form th:action="@{/user/contact-us}" th:object="${contact}" method="POST">
 			<div>
 				<label for="subject">Subject</label> 
 				<input type="text" name="subject" th:field="*{subject}" />

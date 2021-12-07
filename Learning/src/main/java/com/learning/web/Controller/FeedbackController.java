@@ -24,20 +24,20 @@ public class FeedbackController {
 	@Autowired
 	private FeedbackService feedbackService;
 	
-	@GetMapping("/course/feedback")
+	@GetMapping("/user/feedback")
 	public String getFeedbackPage(Model model) {
 		Feedback feedback = new Feedback();
 		model.addAttribute("feedback", feedback);
 		return "feedback";
 	}
 	
-	@PostMapping("/course/feedback")
+	@PostMapping("/user/feedback")
 	public String addNewFeedback(@ModelAttribute("feedback") Feedback feedback) {
 		feedbackService.saveFeedback(feedback);
 		return "redirect:/dashboard/user";
 	}
 	
-	@GetMapping("/feedbacks/list")
+	@GetMapping("/admin/feedbacks/list")
 	public String getAllFeedbackList(Model model) {
 		model.addAttribute("feedbacks", feedbackService.getAllFeedbacks());
 		return "feedback_list";

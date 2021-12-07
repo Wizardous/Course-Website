@@ -24,7 +24,7 @@ public class ContactController {
 	@Autowired
 	private ContactService contactService;
 	
-	@GetMapping("/contact-us")
+	@GetMapping("/user/contact-us")
 	public String getContactUsPage(Model model) {
 		Contact contact = new Contact();
 		model.addAttribute("contact", contact);
@@ -32,13 +32,13 @@ public class ContactController {
 		return "contact_us.html";
 	}
 	
-	@PostMapping("/contact-us")
+	@PostMapping("/user/contact-us")
 	public String addNewContact(@ModelAttribute("contact")Contact contact) {
 		contactService.saveContact(contact);
 		return "redirect:/";
 	}
 	
-	@GetMapping("/contact/list")
+	@GetMapping("/admin/contacts/list")
 	public String getAllContactsList(Model model) {
 		model.addAttribute("contacts", contactService.getAllContacts());
 	

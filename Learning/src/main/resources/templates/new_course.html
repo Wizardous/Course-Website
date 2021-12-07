@@ -8,7 +8,7 @@
 	<h1>Add New Course</h1>
 
 	<div>
-		<form th:action="@{/courses/add}" th:object="${course}" method="POST">
+		<form th:action="@{/admin/courses/add}" th:object="${course}" method="POST">
 			<div>
 				<label for="courseName">First Name</label> 
 				<input type="text" name="courseName" th:field="*{courseName}" />

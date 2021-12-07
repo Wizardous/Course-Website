@@ -32,21 +32,7 @@ public class CourseController {
 		return "courses";
 	}
 	
-	@GetMapping("/courses/add")
-	public String getAddCoursePage(Model model) {
-		Course course = new Course();
-		model.addAttribute("course", course);
-		
-		return "new_course";
-	}
-	
-	@PostMapping("/courses/add")
-	public String addNewCourse(@ModelAttribute("course") Course course) {
-		courseService.saveCourse(course);
-		return "redirect:/";
-	}
-	
-	@GetMapping("/course/{courseId}")
+	@GetMapping("/courses/{courseId}")
 	public String getCourseDetailsPage(
 			@PathVariable Long courseId,
 			Model model
@@ -54,6 +40,21 @@ public class CourseController {
 		model.addAttribute("course", courseService.getCourseById(courseId));
 		return "course_info";
 	}
+	
+	@GetMapping("/admin/courses/add")
+	public String getAddCoursePage(Model model) {
+		Course course = new Course();
+		model.addAttribute("course", course);
+		
+		return "new_course";
+	}
+	
+	@PostMapping("/admin/courses/add")
+	public String addNewCourse(@ModelAttribute("course") Course course) {
+		courseService.saveCourse(course);
+		return "redirect:/";
+	}
+	
 	
 //	@PutMapping("/course/register{courseId}")
 //	public String registerUserToCourse(
