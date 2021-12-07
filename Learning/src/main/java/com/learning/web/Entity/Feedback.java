@@ -1,10 +1,13 @@
 package com.learning.web.Entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,19 +16,19 @@ public class Feedback {
 	@Id
 	@Column(name = "feedback_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@Column(name = "title", nullable = false)
 	private String title;
 	
 	@Column(name="feedback")
 	private String feedbackBody;
-
-	public Integer getId() {
+	
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -44,5 +47,7 @@ public class Feedback {
 	public void setFeedbackBody(String feedbackBody) {
 		this.feedbackBody = feedbackBody;
 	}
+	
+	
 	
 }

@@ -1,10 +1,15 @@
 package com.learning.web.Entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +18,7 @@ public class User {
 	@Id
 	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 
 	@Column(name = "first_name", nullable = false)
 	private String firstName;
@@ -30,15 +35,28 @@ public class User {
 
 	@Column(name = "phone")
 	private String phone;
+	
+	
+	@ManyToMany(mappedBy = "enrolledUsers")
+	private Set<Course> enrolledCourses = new HashSet<>();
+
 
 //	TODO : Add avatar feature for user profile
 //	private String avatar_url;
 
-	public Integer getId() {
+	public Set<Course> getEnrolledCourses() {
+		return enrolledCourses;
+	}
+
+	public void setEnrolledCourses(Set<Course> enrolledCourses) {
+		this.enrolledCourses = enrolledCourses;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -81,6 +99,8 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	
 	
 
 //	TODO : Add when avatar feature ready

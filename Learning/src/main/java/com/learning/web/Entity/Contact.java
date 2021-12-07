@@ -13,36 +13,36 @@ public class Contact {
 	@Id
 	@Column(name = "contact_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@Column(name = "subject", nullable = false)
-	private String msgSubject;
+	private String subject;
 	
 	@Column(name = "message", nullable = false)
-	private String msgTitle;
+	private String message;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getMsgSubject() {
-		return msgSubject;
+	public String getSubject() {
+		return subject;
 	}
 
-	public void setMsgSubject(String msgSubject) {
-		this.msgSubject = msgSubject;
+	public void setSubject(String msgSubject) {
+		this.subject = msgSubject;
 	}
 
-	public String getMsgTitle() {
-		return msgTitle;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setMsgTitle(String msgTitle) {
-		this.msgTitle = msgTitle;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 	
 }
