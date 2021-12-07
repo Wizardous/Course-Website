@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Learning Studio</title>
@@ -8,8 +8,10 @@
 <body>
 	<h1>Learning Studio</h1>
 	<div>
-		<h3>Sign Up</h3>
+		<h3><a th:href="@{/signup}">Sign Up</a></h3>
 		<h3>Login</h3>
+		<hr />
+		<h3><a th:href="@{/contact-us}">Contact Us</a></h3>
 	</div>
 </body>
 
