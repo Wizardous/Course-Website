@@ -14,19 +14,20 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
 	rel="stylesheet">
 
-</head>
-<body>
 
+
+</head>
+
+<body>
 
 	<!--Navbar-->
 	<nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
 		<!-- Navbar brand -->
-		<a class="navbar-brand" href="#">Learn Hub</a>
-		<span class="text-white ml-3" >Hello, 
-			<b th:text ="${#authentication.getPrincipal().getUser().getFullName()}"></b>
+		<a class="navbar-brand" href="#">Learn Hub</a> <span
+			class="text-white ml-3">Hello, <b
+			th:text="${#authentication.getPrincipal().getUser().getFullName()}"></b>
 		</span>
-
 		<!-- Collapse button -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#basicExampleNav" aria-controls="basicExampleNav"
@@ -39,59 +40,22 @@
 
 			<!-- Links -->
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link" th:href="@{/user/contact-us}">Contact
-						Us</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/user/feedback}">Feedback</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/logout}">Log
-						out</a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/user/dashboard}">Dashboard</a></li>
+				<li class="nav-item mx-4"><a class="nav-link"
+					th:href="@{/logout}">Logout</a></li>
 			</ul>
 			<!-- Links -->
 		</div>
 		<!-- Collapsible content -->
+
 	</nav>
 	<!--/.Navbar-->
 
 	<div class="container">
-		<div class="text-center mt-3">
-			<h1>Courses you can learn</h1>
-		</div>
 
-		
-		<div class="d-flex flex-row">
-			<div th:each="course: ${courses}">
-				<!-- Card -->
-				<div class="card m-2" style="max-width: 300px">
-
-					<!-- Card image -->
-					<div class="view overlay">
-						<img class="card-img-top"
-							src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-							alt="Card image cap"> <a href="#!">
-							<div class="mask rgba-white-slight"></div>
-						</a>
-					</div>
-
-					<!-- Card content -->
-					<div class="card-body">
-
-						<!-- Title -->
-						<h4 class="card-title" th:text="${course.courseName}"></h4>
-						<!-- Text -->
-						<p class="card-text" th:text="${course.courseDescription}"></p>
-						<!-- Button -->
-						<a th:href="@{/user/courses/} + ${course.id}" class="btn btn-primary">Details</a>
-
-					</div>
-
-				</div>
-				<!-- Card -->
-			</div>
-		</div>
 
 	</div>
-
-
-
 
 
 	<script type="text/javascript"
@@ -102,5 +66,28 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/twitter- bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
 </body>
+
 </html>
+
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<!-- <head> -->
+<!-- <meta charset="ISO-8859-1"> -->
+<!-- <title>Insert title here</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- 	<h1>All Courses List</h1> -->
+
+<!-- 	<div th:each="course: ${courses}"> -->
+<!-- 		<h3> <a th:href="@{/courses/} + ${course.id}" th:text="${course.courseName}"> </a></h3> -->
+<!-- 		<h4 th:text="${course.courseDescription}"></h4> -->
+<!-- 		<br /> -->
+<!-- 	</div> -->
+<!-- </body> -->
+<!-- </html> -->
+
+<!-- <a th:href="@{/viewSubject} + ${subject.subjectId}" th:text="${subject.subjectName}" >some text </a> -->

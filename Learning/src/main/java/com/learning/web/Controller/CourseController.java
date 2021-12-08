@@ -29,16 +29,16 @@ public class CourseController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/courses")
-	public String getAllCoursesPage(Model model) {
-		model.addAttribute("courses", courseService.getAllCourses());
-		return "courses";
-	}
+//	@GetMapping("/courses")
+//	public String getAllCoursesPage(Model model) {
+//		model.addAttribute("courses", courseService.getAllCourses());
+//		return "courses";
+//	}
 
-	@GetMapping("/courses/{courseId}")
+	@GetMapping("/user/courses/{courseId}")
 	public String getCourseDetailsPage(@PathVariable Long courseId, Model model) {
 		model.addAttribute("course", courseService.getCourseById(courseId));
-		return "course_info";
+		return "course_details";
 	}
 
 	@GetMapping("/admin/courses/add")
