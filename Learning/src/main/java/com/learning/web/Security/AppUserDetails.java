@@ -64,6 +64,10 @@ public class AppUserDetails implements UserDetails{
 		return true;
 	}
 	
+	public User getUser() {
+		return user;
+	}
+	
 }
 
 
