@@ -22,7 +22,10 @@
 
 		<!-- Navbar brand -->
 		<a class="navbar-brand" href="#">Learn Hub</a>
-
+		<span class="text-white ml-3" >Hello, 
+			<b th:text ="${#authentication.getPrincipal().getUser().getFullName()}"></b>
+			(ADMIN)
+		</span>
 
 		<!-- Collapse button -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -63,14 +66,14 @@
 
 		<div th:each="feedback: ${feedbacks}">
 			<div class="card my-3">
+
+
 				<div class="card-body">
 					<h5 class="card-title" th:text="${feedback.title}"></h5>
-					<p class="
-						card-text" th:text="${feedback.feedbackBody}"></p>
+					<p class="card-text" th:text="${feedback.feedbackBody}"></p>
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 

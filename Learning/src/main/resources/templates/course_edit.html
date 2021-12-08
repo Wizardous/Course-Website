@@ -23,7 +23,10 @@
 
 		<!-- Navbar brand -->
 		<a class="navbar-brand" href="#">Learn Hub</a>
-
+		<span class="text-white ml-3" >Hello, 
+			<b th:text ="${#authentication.getPrincipal().getUser().getFullName()}"></b>
+			(ADMIN)
+		</span>
 
 		<!-- Collapse button -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
