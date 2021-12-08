@@ -39,11 +39,12 @@ public class User {
 	@Column(name = "phone")
 	private String phone;
 	
+	private Boolean enabled = true;
+	
 	
 	@ManyToMany(mappedBy = "enrolledUsers")
 	private Set<Course> enrolledCourses = new HashSet<>();
 
-	private boolean enabled;
 
 
 //	TODO : Add avatar feature for user profile
@@ -111,16 +112,7 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-	
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
-	
+	}	
 	
 	
 
