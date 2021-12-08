@@ -39,7 +39,6 @@ public class User {
 	@Column(name = "phone")
 	private String phone;
 	
-	private Boolean enabled = true;
 	
 	
 	@ManyToMany(mappedBy = "enrolledUsers")
