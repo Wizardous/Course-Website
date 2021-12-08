@@ -35,7 +35,7 @@ public class ContactController {
 	@PostMapping("/user/contact-us")
 	public String addNewContact(@ModelAttribute("contact")Contact contact) {
 		contactService.saveContact(contact);
-		return "redirect:/";
+		return "redirect:/user/dashboard";
 	}
 	
 	@GetMapping("/admin/contacts/list")

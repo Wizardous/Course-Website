@@ -21,7 +21,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/user/signup")
+	@GetMapping("/signup")
 	public String viewSignUpPage(Model model) {
 		User user = new User();
 		user.setRole("USER");
@@ -30,10 +30,11 @@ public class UserController {
 		return "signup";
 	}
 	
-	@PostMapping("/user/signup")
+	@PostMapping("/signup")
 	public String registerUser(@ModelAttribute("user") User user) {
+		user.setRole("USER");
 		userService.saveUser(user);
-		return "redirect:/";
+		return "redirect:/user/dashboard";
 	}
 	
 	@GetMapping("/admin/users/list")

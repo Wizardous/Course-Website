@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.learning.web.Entity.Course;
 import com.learning.web.Entity.User;
@@ -24,6 +25,7 @@ public class AppController {
 	private CourseService courseService;
 	@Autowired
 	private UserService userService;
+
 	
 	@GetMapping("/")
 	public String viewHomePage() {
@@ -31,16 +33,18 @@ public class AppController {
 	}
 	
 	@GetMapping("/admin/dashboard")
-	public String viewAdminDashboardPage() {
+	public String viewAdminDashboardPage(Model model) {
+		model.addAttribute("courses", courseService.getAllCourses());
 		return "admin_dashboard";
 	}
 	
 	@GetMapping("/user/dashboard")
-	public String viewUserDahsboardPage() {
+	public String viewUserDahsboardPage(Model model) {
+		model.addAttribute("courses", courseService.getAllCourses());
 		return "user_dashboard";
 	}
 
-	
+
 	
 
 }

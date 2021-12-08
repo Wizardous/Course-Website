@@ -34,7 +34,7 @@ public class FeedbackController {
 	@PostMapping("/user/feedback")
 	public String addNewFeedback(@ModelAttribute("feedback") Feedback feedback) {
 		feedbackService.saveFeedback(feedback);
-		return "redirect:/dashboard/user";
+		return "redirect:/user/dashboard";
 	}
 	
 	@GetMapping("/admin/feedbacks/list")

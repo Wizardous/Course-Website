@@ -3,6 +3,8 @@ package com.learning.web.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import com.learning.web.Entity.Course;
 import com.learning.web.Entity.User;
 import com.learning.web.Repository.CourseRepository;
+import com.learning.web.Security.AppUserDetails;
 import com.learning.web.Service.CourseService;
 import com.learning.web.Service.UserService;
 
@@ -56,16 +59,6 @@ public class CourseController {
 	}
 	
 	
-//	@PutMapping("/course/register{courseId}")
-//	public String registerUserToCourse(
-//			@PathVariable Long courseId,
-//			@PathVariable Long userId
-//	) {
-//		Course course = courseService.getCourseById(courseId);
-//		
-//		course.enrolleUser(user);
-//		courseService.updateCourse(course);
-//		return "redirect:/courses";
-//	}
+	
 
 }
