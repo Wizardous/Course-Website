@@ -2,40 +2,126 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Learning Hub</title>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
+	rel="stylesheet">
+
 </head>
 <body>
-	<h1>Sign up</h1>
-	<hr />
 
-	<form th:action="@{/user/signup}" th:object="${user}" method="POST">
-		<div>
-			<label for="firstName">First Name</label>
-			<input type="text" name="firstName" th:field="*{firstName}"/>
+	<div class="container">
+		<div class="text-center my-5">
+			<h1>Sign Up</h1>
 		</div>
-		
-		<div>
-			<label for="lastName">Last Name</label>
-			<input type="text" name="lastName" th:field="*{lastName}" />
-		</div>
-		
-		<div>
-			<label for="email">Email</label>
-			<input type="email" name="email" th:field="*{email}"/>
-		</div>
-		
-		<div>
-			<label for="phone">Phone</label>
-			<input type="text" name="phone" th:field="*{phone}"/>
-		</div>
-		
-		<div>
-			<label for="password">Password</label>
-			<input type="password" name="password" th:field="*{password}"/>
-		</div>
-		
-		<button type="submit">Submit</button>		
 
-	</form>
+		<div class="text-center " style="padding: 0px 300px">
+
+			<form class="text-center border border-light p-5"
+				th:action="@{/signup}" th:object="${user}" method="POST">
+
+				<div class="form-row mb-4">
+					<div class="col">
+						<!-- First name -->
+						<div class="md-form">
+							<input type="text" th:field="*{firstName}" id="materialRegisterFormFirstName"
+								class="form-control"  required> <label
+								for="materialRegisterFormFirstName">First name</label>
+						</div>
+					</div>
+					<div class="col">
+						<!-- Last name -->
+						<div class="md-form">
+							<input type="text" th:field="*{lastName}" id="materialRegisterFormLastName"
+								class="form-control"> <label
+								for="materialRegisterFormLastName">Last name</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- E-mail -->
+				<div class="md-form">
+					<input type="email" id="materialRegisterFormEmail"
+						class="form-control" th:field="*{email}" required> <label
+						for="materialRegisterFormEmail">E-mail</label>
+				</div>
+
+				<!-- Password -->
+				<div class="md-form">
+					<input type="password" id="materialRegisterFormPassword"
+						class="form-control" th:field="*{password}"
+						aria-describedby="materialRegisterFormPasswordHelpBlock" required>
+					<label for="materialRegisterFormPassword">Password</label> <small
+						id="materialRegisterFormPasswordHelpBlock"
+						class="form-text text-muted mb-4"> </small>
+				</div>
+
+				<!-- Phone number -->
+				<div class="md-form">
+					<input type="text" id="materialRegisterFormPhone"
+						class="form-control" th:field="*{phone}"
+						aria-describedby="materialRegisterFormPhoneHelpBlock" required> <label
+						for="materialRegisterFormPhone">Phone number</label> <small
+						id="materialRegisterFormPhoneHelpBlock"
+						class="form-text text-muted mb-4"> </small>
+				</div>
+
+
+				<!-- Sign up button -->
+				<button class="btn btn-info my-4 btn-block" type="submit">Sign
+					in</button>
+
+				<hr>
+			</form>
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter- bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </body>
 </html>
+
+
+
+<!-- <form th:action="@{/signup}" th:object="${user}" method="POST"> -->
+<!-- 		<div> -->
+<!-- 			<label for="firstName">First Name</label> -->
+<!-- 			<input type="text" name="firstName" th:field="*{firstName}"/> -->
+<!-- 		</div> -->
+
+<!-- 		<div> -->
+<!-- 			<label for="lastName">Last Name</label> -->
+<!-- 			<input type="text" name="lastName" th:field="*{lastName}" /> -->
+<!-- 		</div> -->
+
+<!-- 		<div> -->
+<!-- 			<label for="email">Email</label> -->
+<!-- 			<input type="email" name="email" th:field="*{email}"/> -->
+<!-- 		</div> -->
+
+<!-- 		<div> -->
+<!-- 			<label for="phone">Phone</label> -->
+<!-- 			<input type="text" name="phone" th:field="*{phone}"/> -->
+<!-- 		</div> -->
+
+<!-- 		<div> -->
+<!-- 			<label for="password">Password</label> -->
+<!-- 			<input type="password" name="password" th:field="*{password}"/> -->
+<!-- 		</div> -->
+
+<!-- 		<button type="submit">Submit</button>		 -->
+
+<!-- 	</form> -->

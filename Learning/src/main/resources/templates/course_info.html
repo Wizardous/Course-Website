@@ -8,5 +8,10 @@
 
 	<h1 th:text="${course.id}"></h1>
 	<h2 th:text="${course.courseDescription}"></h2>
+	
+	<form th:action="@{/course/register}" th:object="${course}" method="POST">
+		<button type="submit">Register</button>
+	</form>
+	
 </body>
 </html>

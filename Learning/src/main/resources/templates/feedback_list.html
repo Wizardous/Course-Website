@@ -2,13 +2,101 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Learning Hub</title>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
+	rel="stylesheet">
+
 </head>
 <body>
-	<h1>All Feedbacks</h1>
-	<div th:each="feedback: ${feedbacks}">
-		<h3 th:text="${feedback.title}"></h3>
-		<h4 th:text="${feedback.feedbackBody}"></h4>
+
+	<!--Navbar-->
+	<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+		<!-- Navbar brand -->
+		<a class="navbar-brand" href="#">Learn Hub</a>
+
+
+		<!-- Collapse button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#basicExampleNav" aria-controls="basicExampleNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Collapsible content -->
+		<div class="collapse navbar-collapse" id="basicExampleNav">
+
+			<!-- Links -->
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/dashboard}">Dashboard </a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/courses/add}">Add Course </a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/feedbacks/list}">Feedbacks</a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/contacts/list}">Contacts</a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/users/list}">Users</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/logout}">Log
+						out</a></li>
+			</ul>
+			<!-- Links -->
+		</div>
+		<!-- Collapsible content -->
+	</nav>
+	<!--/.Navbar-->
+
+
+	<div class="container">
+		<div class="text-center my-5">
+			<h1>Feedbacks from the Users</h1>
+		</div>
+
+		<div th:each="feedback: ${feedbacks}">
+			<div class="card my-3">
+				<div class="card-body">
+					<h5 class="card-title" th:text="${feedback.title}"></h5>
+					<p class="
+						card-text" th:text="${feedback.feedbackBody}"></p>
+				</div>
+			</div>
+		</div>
+
 	</div>
+
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+						</script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter- bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </body>
 </html>
+
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<!-- <head> -->
+<!-- <meta charset="ISO-8859-1"> -->
+<!-- <title>Insert title here</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- 	<h1>All Feedbacks</h1> -->
+<!-- 	<div th:each="feedback: ${feedbacks}"> -->
+<!-- 		<h3 th:text="${feedback.title}"></h3> -->
+<!-- 		<h4 th:text="${feedback.feedbackBody}"></h4> -->
+<!-- 	</div> -->
+<!-- </body> -->
+<!-- </html> -->
