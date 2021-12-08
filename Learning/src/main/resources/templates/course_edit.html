@@ -55,43 +55,49 @@
 	<!--/.Navbar-->
 
 	<div class="container">
-		<div class="text-center mt-3">
-			<h1>Courses on Platform</h1>
+		<div class="text-center my-5">
+			<h1>Course Details Update</h1>
 		</div>
 
+		<div class="text-center " style="padding: 0px 300px">
 
-		<div class="d-flex flex-row">
-			<div th:each="course: ${courses}">
-				<!-- Card -->
-				<div class="card m-2" style="max-width: 300px">
+			<form class="text-center p-5"
+				th:action="@{/admin/courses/add}"
+				method="POST">
 
-					<!-- Card image -->
-					<div class="view overlay">
-						<img class="card-img-top"
-							src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-							alt="Card image cap"> <a href="#!">
-							<div class="mask rgba-white-slight"></div>
-						</a>
+				<div class="form-row mb-4">
+					<div class="col">
+						<!-- First name -->
+						<div class="md-form">
+							<input type="text" th:value="*{course.courseName}"
+								id="materialRegisterFormFirstName" class="form-control" required>
+							<label for="materialRegisterFormFirstName">Course Title</label>
+						</div>
 					</div>
-
-					<!-- Card content -->
-					<div class="card-body">
-
-						<!-- Title -->
-						<h4 class="card-title" th:text="${course.courseName}"></h4>
-						<!-- Text -->
-						<p class="card-text" th:text="${course.courseDescription}"></p>
-						<!-- Button -->
-						<a th:href="@{/admin/courses/edit/} + ${course.id}" class="btn btn-primary">Edit</a>
-
-					</div>
-
 				</div>
-				<!-- Card -->
-			</div>
-		</div>
+				<div class="form-row mb-4">
+					<div class="col">
+						<div class="md-form">
+							<textarea id="form10" class="md-textarea form-control"
+								th:text="${course.courseDescription}" rows="3"></textarea>
+							<label for="form10">Course Description</label>
+						</div>
+					</div>
+				</div>
 
+				<button class="btn btn-info my-4 btn-block" type="submit">Update</button>
+
+				<hr>
+			</form>
+			<form class="text-center px-5"
+				th:action="@{/admin/courses/delete/} + ${courseId}"
+				method="POST">
+				<button class="btn btn-danger my-4 btn-block" type="submit">Delete </button>
+			</form>
+		</div>
 	</div>
+
+
 
 
 	<script type="text/javascript"
@@ -106,7 +112,6 @@
 </html>
 
 
-
 <!-- <!DOCTYPE html> -->
 <!-- <html xmlns:th="http://www.thymeleaf.org"> -->
 <!-- <head> -->
@@ -114,24 +119,13 @@
 <!-- <title>Insert title here</title> -->
 <!-- </head> -->
 <!-- <body> -->
-<!-- 	<h1>Admin Dashboard</h1> -->
 
-<!-- 	<div> -->
-<!-- 		<a th:href="@{/admin/courses/add}">Add Course</a><br /> -->
-<!-- 		<a th:href="@{/courses}">View Course</a><br /> -->
-<!-- 		<br /> -->
-<!-- 		<a th:href="@{/admin/users/list}">Users List</a> <br /> -->
-<!-- 		<a th:href="@{/admin/feedbacks/list}">Feedback</a> <br /> -->
-<!-- 		<a th:href="@{/admin/contacts/list}">Contact</a> -->
+<!-- 	<h1 th:text="${course.id}"></h1> -->
+<!-- 	<h2 th:text="${course.courseDescription}"></h2> -->
 
-<!-- 	</div> -->
-<!-- 	<br /> -->
-
-
-
-
-<!-- 	<form name="logoutForm" th:action="@{/logout}" method="POST"> -->
-<!-- 		<button type="submit">Sign out</button> -->
+<!-- 	<form th:action="@{/course/register}" th:object="${course}" method="POST"> -->
+<!-- 		<button type="submit">Register</button> -->
 <!-- 	</form> -->
+
 <!-- </body> -->
 <!-- </html> -->

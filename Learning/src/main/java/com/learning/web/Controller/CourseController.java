@@ -22,43 +22,60 @@ import com.learning.web.Service.UserService;
 
 @Controller
 public class CourseController {
-	
+
 	@Autowired
 	private CourseService courseService;
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping("/courses")
 	public String getAllCoursesPage(Model model) {
 		model.addAttribute("courses", courseService.getAllCourses());
 		return "courses";
 	}
-	
+
 	@GetMapping("/courses/{courseId}")
-	public String getCourseDetailsPage(
-			@PathVariable Long courseId,
-			Model model
-	) {
+	public String getCourseDetailsPage(@PathVariable Long courseId, Model model) {
 		model.addAttribute("course", courseService.getCourseById(courseId));
 		return "course_info";
 	}
-	
+
 	@GetMapping("/admin/courses/add")
 	public String getAddCoursePage(Model model) {
 		Course course = new Course();
 		model.addAttribute("course", course);
-		
+
 		return "new_course";
 	}
-	
+
 	@PostMapping("/admin/courses/add")
 	public String addNewCourse(@ModelAttribute("course") Course course) {
 		courseService.saveCourse(course);
-		return "redirect:/";
+		return "redirect:/admin/dashboard";
+	}
+
+	@GetMapping("/admin/courses/edit/{courseId}")
+	public String getEditCoursePage(
+			@PathVariable Long courseId,
+			Model model
+	) {
+		Course course = courseService.getCourseById(courseId);
+		model.addAttribute("course", course);
+		
+		return "course_edit";
 	}
 	
+	@PostMapping("/admin/courses/edit")
+	public String editCourse(@ModelAttribute("course") Course course) {
+		courseService.saveCourse(course);
+		return "redirect:/admin/dashboard";
+	}
 	
-	
+	@PostMapping("/admin/courses/delete/{courseId}")
+	public String addNewCourse(@PathVariable Long courseId) {
+		courseService.deleteUserById(courseId);
+		return "redirect:/admin/dashboard";
+	}
 
 }
