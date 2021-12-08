@@ -42,4 +42,5 @@ public class FeedbackController {
 		model.addAttribute("feedbacks", feedbackService.getAllFeedbacks());
 		return "feedback_list";
 	}
+	
 }
