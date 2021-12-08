@@ -1,5 +1,6 @@
 package com.learning.web.Controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,17 +30,30 @@ public class CourseController {
 	@Autowired
 	private UserService userService;
 
-//	@GetMapping("/courses")
-//	public String getAllCoursesPage(Model model) {
-//		model.addAttribute("courses", courseService.getAllCourses());
-//		return "courses";
-//	}
-
 	@GetMapping("/user/courses/{courseId}")
 	public String getCourseDetailsPage(@PathVariable Long courseId, Model model) {
 		model.addAttribute("course", courseService.getCourseById(courseId));
 		return "course_details";
 	}
+	
+	@PostMapping("/user/courses/register/{courseId}")
+	public String registerUserForCourse(
+			@PathVariable Long courseId,
+			Model model
+	) {
+		Course course = courseService.getCourseById(courseId);
+		model.addAttribute("course", course);
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.getUserByEmail(authentication.getName());
+		
+		course.enrolleUser(user);
+		courseService.saveCourse(course);
+		
+		return "register_success";
+	}
+	
+	
 
 	@GetMapping("/admin/courses/add")
 	public String getAddCoursePage(Model model) {
@@ -77,5 +91,7 @@ public class CourseController {
 		courseService.deleteUserById(courseId);
 		return "redirect:/admin/dashboard";
 	}
+	
+	
 
 }

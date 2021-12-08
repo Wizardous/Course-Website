@@ -59,6 +59,10 @@
 					<h1 th:text="${course.courseName}"></h1>
 					<hr />
 					<p th:text="${course.courseDescription}"></p>
+					<br />
+					<form th:action="@{/user/courses/register/} + ${course.id}" method="POST">
+						<button type="submit">Register</button>
+					</form>
 				</div>
 				<div class="col-4">
 					<img src="https://diypbx.com/wp-content/uploads/2016/02/video-placeholder-1.jpg" alt="" />
